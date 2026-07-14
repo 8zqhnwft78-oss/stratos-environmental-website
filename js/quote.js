@@ -38,7 +38,10 @@ var CONFIG = {
   // ----- Option card selection styling -----
   form.querySelectorAll(".options").forEach(function (group) {
     group.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(function (input) {
-      input.addEventListener("change", function () { syncSelected(input); });
+      input.addEventListener("change", function () {
+        syncSelected(input);
+        clearOptionError(group);
+      });
     });
   });
 
@@ -87,7 +90,8 @@ var CONFIG = {
     var group = panel.querySelector(".options");
     if (group) {
       var checked = group.querySelector("input:checked");
-      if (!checked) { flashOptions(group); return false; }
+      if (!checked) { showOptionError(group); return false; }
+      clearOptionError(group);
       return true;
     }
     var ok = true;
@@ -121,10 +125,37 @@ var CONFIG = {
     group.style.animation = "fade 0.25s ease";
   }
 
+  function showOptionError(group) {
+    flashOptions(group);
+    var err = group.querySelector(".options-err");
+    if (!err) {
+      err = document.createElement("p");
+      err.className = "options-err";
+      err.textContent = "Please select at least one option to continue.";
+      group.parentNode.insertBefore(err, group.nextSibling);
+    }
+    err.style.display = "block";
+  }
+
+  function clearOptionError(group) {
+    var err = group.parentNode.querySelector(".options-err");
+    if (err) err.style.display = "none";
+  }
+
+  function validateAllSteps() {
+    for (var s = 1; s <= 5; s++) {
+      if (!validateStep(s)) {
+        goTo(s);
+        return false;
+      }
+    }
+    return true;
+  }
+
   // ----- Submit -----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (!validateStep(5)) return;
+    if (!validateAllSteps()) return;
 
     var submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
@@ -134,9 +165,9 @@ var CONFIG = {
     var data = collectData();
 
     if (!CONFIG.WEB3FORMS_KEY) {
-      // Demo mode — no email backend configured yet.
-      console.warn("[Stratos] No WEB3FORMS_KEY set — running in demo mode. Add a key in js/quote.js to receive quotes by email.", data);
-      setTimeout(function () { showSuccess(submitBtn, originalText); }, 500);
+      alert("Quote form is not fully configured yet. Please call us on +44 7448 730416.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
       return;
     }
 
@@ -148,27 +179,34 @@ var CONFIG = {
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (res.success) { showSuccess(submitBtn, originalText); }
-        else { failSubmit(submitBtn, originalText); }
+        else { failSubmit(submitBtn, originalText, res.message || "Unknown error"); }
       })
-      .catch(function () { failSubmit(submitBtn, originalText); });
+      .catch(function (err) { failSubmit(submitBtn, originalText, err && err.message ? err.message : "Network error"); });
   });
 
   function collectData() {
-    var get = function (n) { var el = form.querySelector('[name="' + n + '"]:checked, [name="' + n + '"]'); return el ? el.value.trim() : ""; };
+    var getText = function (n) {
+      var el = form.querySelector('[name="' + n + '"]');
+      return el && el.value ? el.value.trim() : "";
+    };
+    var getRadio = function (n) {
+      var el = form.querySelector('[name="' + n + '"]:checked');
+      return el ? el.value.trim() : "";
+    };
     var getMulti = function (n) {
       var els = form.querySelectorAll('[name="' + n + '"]:checked');
       return Array.prototype.map.call(els, function (e) { return e.value.trim(); }).join(", ");
     };
     return {
       waste: getMulti("waste"),
-      frequency: get("frequency"),
+      frequency: getRadio("frequency"),
       container: getMulti("container"),
-      company: get("company"),
-      postcode: get("postcode"),
-      firstName: get("firstName"),
-      lastName: get("lastName"),
-      phone: get("phone"),
-      email: get("email"),
+      company: getText("company"),
+      postcode: getText("postcode"),
+      firstName: getText("firstName"),
+      lastName: getText("lastName"),
+      phone: getText("phone"),
+      email: getText("email"),
     };
   }
 
@@ -194,10 +232,10 @@ var CONFIG = {
     btn.textContent = text;
   }
 
-  function failSubmit(btn, text) {
+  function failSubmit(btn, text, detail) {
     btn.disabled = false;
     btn.textContent = text;
-    alert("Sorry, something went wrong sending your request. Please call us on +44 7448 730416 and we'll help right away.");
+    alert("Sorry, something went wrong sending your request. Please call us on +44 7448 730416 and we'll help right away." + (detail ? "\n\n(" + detail + ")" : ""));
   }
 
   // Minimal CSS.escape fallback for attribute selectors

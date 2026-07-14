@@ -252,11 +252,13 @@ img { max-width: 100%; display: block; }
 
 .options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 26px; }
 .option {
+  position: relative;
   display: flex; align-items: center; gap: 12px; padding: 16px 18px; cursor: pointer;
   border: 1.5px solid var(--border); border-radius: 13px; background: #fff; transition: 0.15s; font-weight: 500;
 }
 .option:hover { border-color: var(--green-400); background: #fbfefb; }
-.option input { display: none; }
+.option input { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.options-err { color: #d33; font-size: 0.9rem; margin: -14px 0 18px; font-weight: 500; }
 .option .opt-icon { color: var(--green-600); flex: 0 0 auto; display: grid; place-items: center; }
 .option.selected { border-color: var(--green-600); background: var(--bg-mint); box-shadow: 0 0 0 3px rgba(31,157,77,0.12); }
 .option .check { margin-left: auto; opacity: 0; color: var(--green-600); }
