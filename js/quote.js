@@ -37,15 +37,21 @@ var CONFIG = {
 
   // ----- Option card selection styling -----
   form.querySelectorAll(".options").forEach(function (group) {
-    group.querySelectorAll('input[type="radio"]').forEach(function (input) {
+    group.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(function (input) {
       input.addEventListener("change", function () { syncSelected(input); });
     });
   });
 
   function syncSelected(input) {
     var group = input.closest(".options");
-    group.querySelectorAll(".option").forEach(function (o) { o.classList.remove("selected"); });
-    input.closest(".option").classList.add("selected");
+    if (input.type === "checkbox") {
+      // Multi-select: toggle just this option based on its checked state.
+      input.closest(".option").classList.toggle("selected", input.checked);
+    } else {
+      // Single-select: clear siblings, select this one.
+      group.querySelectorAll(".option").forEach(function (o) { o.classList.remove("selected"); });
+      input.closest(".option").classList.add("selected");
+    }
   }
 
   // ----- Navigation -----
@@ -149,10 +155,14 @@ var CONFIG = {
 
   function collectData() {
     var get = function (n) { var el = form.querySelector('[name="' + n + '"]:checked, [name="' + n + '"]'); return el ? el.value.trim() : ""; };
+    var getMulti = function (n) {
+      var els = form.querySelectorAll('[name="' + n + '"]:checked');
+      return Array.prototype.map.call(els, function (e) { return e.value.trim(); }).join(", ");
+    };
     return {
-      waste: get("waste"),
+      waste: getMulti("waste"),
       frequency: get("frequency"),
-      container: get("container"),
+      container: getMulti("container"),
       company: get("company"),
       postcode: get("postcode"),
       firstName: get("firstName"),
