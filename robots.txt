@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stratosenvironmental.co.uk/sitemap.xml

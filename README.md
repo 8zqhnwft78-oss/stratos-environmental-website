@@ -8,15 +8,32 @@ waste collection & recycling business. Built as a lightweight static site
 
 ```
 stratos-environmental-website/
-├── index.html        # Homepage (hero, services, how it works, coverage, reviews, contact)
+├── index.html        # Homepage (hero, services, how it works, coverage, reviews, FAQ, contact)
 ├── quote.html        # Multi-step "Get a Free Quote" wizard
 ├── favicon.svg       # Site icon / logo mark
+├── og-image.png      # Social share image (1200x630, used for Open Graph/Twitter)
+├── robots.txt        # Search engine crawl rules + sitemap reference
+├── sitemap.xml       # Sitemap for search engines
 ├── css/
 │   └── styles.css    # Design system + all page styles
 └── js/
     ├── main.js       # Mobile nav + footer year
     └── quote.js      # Quote wizard logic + form submission
 ```
+
+## SEO
+
+The site is optimised for search engines and social sharing:
+
+- **Metadata:** keyword-rich titles, meta descriptions, canonical URLs, and `theme-color` on every page.
+- **Open Graph + Twitter cards:** rich link previews (with `og-image.png`) when shared on social/messaging apps.
+- **Structured data (JSON-LD):** `LocalBusiness`, `WebSite`, `FAQPage` (homepage) and `BreadcrumbList` (quote page) — helps Google show rich results.
+- **FAQ section** on the homepage targeting common commercial-waste search queries.
+- **`robots.txt` + `sitemap.xml`** so search engines can crawl and index efficiently.
+
+**After going live, do this once:** submit your site to
+[Google Search Console](https://search.google.com/search-console) and add your
+sitemap (`https://stratosenvironmental.co.uk/sitemap.xml`) to get indexed faster.
 
 ## Preview locally
 
