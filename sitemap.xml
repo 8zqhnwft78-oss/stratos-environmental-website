@@ -3,6 +3,7 @@
   <url><loc>https://stratosenvironmental.co.uk/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://stratosenvironmental.co.uk/quote</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://stratosenvironmental.co.uk/upload-invoice</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://stratosenvironmental.co.uk/binpedia</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://stratosenvironmental.co.uk/services/commercial-waste-collection</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://stratosenvironmental.co.uk/services/general-waste</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://stratosenvironmental.co.uk/services/dry-mixed-recycling</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
