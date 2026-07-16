@@ -201,7 +201,12 @@ a.region:hover { border-color: var(--green-500); color: var(--green-700); backgr
 .landing-body h2 { margin-top: 36px; margin-bottom: 12px; font-size: 1.45rem; }
 .landing-body p, .landing-body li { color: var(--muted); }
 .landing-body ul { padding-left: 1.2rem; margin: 0 0 1rem; }
-.landing-body ul li { margin-bottom: 8px; }
+.landing-body ol { padding-left: 1.2rem; margin: 0 0 1rem; }
+.landing-body ul li, .landing-body ol li { margin-bottom: 8px; }
+#industries .regions { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 900px) {
+  #industries .regions { grid-template-columns: repeat(3, 1fr); }
+}
 .landing-cta { background: var(--bg-soft); padding: 48px 0; text-align: center; }
 .landing-cta h2 { margin-bottom: 10px; }
 .landing-cta p { color: var(--muted); margin-bottom: 22px; }
