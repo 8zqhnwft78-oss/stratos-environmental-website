@@ -178,7 +178,7 @@ var CONFIG = {
     })
       .then(function (r) { return r.json(); })
       .then(function (res) {
-        if (res.success) { showSuccess(submitBtn, originalText); }
+        if (res.success) { showSuccess(); }
         else { failSubmit(submitBtn, originalText, res.message || "Unknown error"); }
       })
       .catch(function (err) { failSubmit(submitBtn, originalText, err && err.message ? err.message : "Network error"); });
@@ -226,10 +226,10 @@ var CONFIG = {
     };
   }
 
-  function showSuccess(btn, text) {
-    goTo(6);
-    btn.disabled = false;
-    btn.textContent = text;
+  function showSuccess() {
+    // Only reached after a successful submission — send the customer to the
+    // dedicated confirmation page.
+    window.location.assign("/quote/thank-you");
   }
 
   function failSubmit(btn, text, detail) {
