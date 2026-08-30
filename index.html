@@ -57,12 +57,18 @@
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "London",
+      "addressRegion": "Greater London",
       "addressCountry": "GB"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "United Kingdom"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.5074,
+      "longitude": -0.1278
     },
+    "areaServed": [
+      { "@type": "Country", "name": "United Kingdom" },
+      { "@type": "City", "name": "London" }
+    ],
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -75,6 +81,17 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Food Waste Collection" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Glass Collection" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Clinical & Healthcare Waste" } }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3",
+      "bestRating": "5"
+    },
+    "review": [
+      { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Charlotte B." }, "reviewBody": "Super helpful and fast replies. Made it really easy for me to set everything up as this was my first time arranging waste collection." },
+      { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "The Residence" }, "reviewBody": "Really helpful, efficient and friendly. They beat the price of other suppliers by quite a lot and rushed through the delivery of our bins." },
+      { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Proudlove Property" }, "reviewBody": "Very easy to set up our third site. The other contracts have run for some time and deliveries are reliable — no issues at all." }
     ]
   }
   </script>

@@ -113,7 +113,7 @@ img { max-width: 100%; display: block; }
   background: radial-gradient(circle, rgba(31, 157, 77, 0.18), transparent 70%); border-radius: 50%;
   pointer-events: none;
 }
-.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; padding: 76px 0 86px; }
+.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; padding-top: 76px; padding-bottom: 86px; }
 .hero h1 span { color: var(--green-600); }
 .hero-sub { font-size: 1.16rem; color: var(--muted); max-width: 520px; margin-bottom: 26px; }
 .hero-points { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; }
@@ -186,9 +186,18 @@ img { max-width: 100%; display: block; }
 /* ---------- Coverage ---------- */
 .coverage-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .regions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.region { display: flex; align-items: center; gap: 9px; font-weight: 500; background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: 12px 14px; box-shadow: var(--shadow-sm); color: var(--ink); transition: 0.15s; }
+.region { display: flex; align-items: center; gap: 9px; font-weight: 500; background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: 12px 14px; box-shadow: var(--shadow-sm); color: var(--ink); transition: 0.15s; min-width: 0; }
 a.region:hover { border-color: var(--green-500); color: var(--green-700); background: #fbfefb; }
 .region svg { color: var(--green-500); flex: 0 0 auto; }
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs { background: #fff; border-bottom: 1px solid var(--border); }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 12px 0; font-size: 0.85rem; }
+.breadcrumbs li { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+.breadcrumbs li + li::before { content: "/"; color: var(--muted); opacity: 0.5; }
+.breadcrumbs a { color: var(--muted); }
+.breadcrumbs a:hover { color: var(--green-700); }
+.breadcrumbs [aria-current="page"] { color: var(--ink); font-weight: 600; }
 
 /* ---------- Landing / inner pages ---------- */
 .page-hero { background: linear-gradient(160deg, #f3f9f4 0%, #eaf5ec 55%, #e2f1e5 100%); padding: 64px 0 72px; }
