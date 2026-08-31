@@ -440,7 +440,10 @@ a.region:hover { border-color: var(--green-500); color: var(--green-700); backgr
    Quote wizard
    ========================================================================== */
 .quote-page { background: var(--bg-soft); min-height: 100vh; }
-.quote-layout { display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 40px; padding: 52px 0 80px; align-items: start; }
+.quote-intro { max-width: 760px; margin: 0 auto; padding: 44px 0 0; text-align: center; }
+.quote-intro h1 { font-family: "Sora", sans-serif; font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.15; margin: 0 0 10px; }
+.quote-intro p { color: var(--muted); margin: 0; font-size: 1.02rem; }
+.quote-layout { display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 40px; padding: 28px 0 80px; align-items: start; }
 .wizard { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 36px; }
 .progress { margin-bottom: 30px; }
 .progress-track { height: 8px; background: var(--bg-mint); border-radius: 999px; overflow: hidden; }
@@ -484,7 +487,7 @@ a.region:hover { border-color: var(--green-500); color: var(--green-700); backgr
 
 .wizard-success { text-align: center; padding: 20px 10px; }
 .wizard-success .success-mark { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-mint); color: var(--green-600); display: grid; place-items: center; margin: 0 auto 20px; }
-.wizard-success h2 { font-size: 1.6rem; }
+.wizard-success h1, .wizard-success h2 { font-size: 1.6rem; margin: 0 0 10px; }
 .wizard-success p { color: var(--muted); max-width: 420px; margin: 0 auto 8px; }
 
 /* Sidebar */
