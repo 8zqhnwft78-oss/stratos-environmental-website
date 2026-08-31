@@ -7,8 +7,25 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    try {
+      if (localStorage.getItem('se-cookie-consent') === 'granted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    } catch (e) {}
     gtag('config', 'AW-18326902889');
   </script>
+  <script defer src="/js/consent.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -46,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
 
   <!-- Structured data: Local business -->
   <script type="application/ld+json">
@@ -502,7 +519,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span id="year"></span> Stratos Environmental. All rights reserved.</span>
-        <span>Licensed partner network · Duty of care compliant</span>
+        <span>Licensed partner network · Duty of care compliant · <a href="/privacy" style="color:#b9d3c2">Privacy &amp; cookies</a></span>
       </div>
     </div>
   </footer>

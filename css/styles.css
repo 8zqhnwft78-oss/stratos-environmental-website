@@ -190,6 +190,17 @@ img { max-width: 100%; display: block; }
 a.region:hover { border-color: var(--green-500); color: var(--green-700); background: #fbfefb; }
 .region svg { color: var(--green-500); flex: 0 0 auto; }
 
+/* ---------- Cookie consent banner ---------- */
+.cookie-banner { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1000; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); animation: cookieIn 0.3s ease; }
+.cookie-banner.hide { opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.cookie-inner { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
+.cookie-text { margin: 0; flex: 1 1 320px; font-size: 0.9rem; color: var(--muted); }
+.cookie-text a { color: var(--green-600); text-decoration: underline; }
+.cookie-actions { display: flex; gap: 10px; flex: 0 0 auto; }
+.cookie-actions .btn { padding: 10px 22px; }
+@keyframes cookieIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) { .cookie-actions { width: 100%; } .cookie-actions .btn { flex: 1; } }
+
 /* ---------- Breadcrumbs ---------- */
 .breadcrumbs { background: #fff; border-bottom: 1px solid var(--border); }
 .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 12px 0; font-size: 0.85rem; }
