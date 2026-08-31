@@ -190,6 +190,12 @@ img { max-width: 100%; display: block; }
 a.region:hover { border-color: var(--green-500); color: var(--green-700); background: #fbfefb; }
 .region svg { color: var(--green-500); flex: 0 0 auto; }
 
+/* ---------- Legal tables ---------- */
+.legal-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92rem; }
+.legal-table th, .legal-table td { text-align: left; padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; }
+.legal-table th { background: var(--surface, #f6f8f5); font-weight: 600; color: var(--ink); }
+.legal-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.015); }
+
 /* ---------- Cookie consent banner ---------- */
 .cookie-banner { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1000; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); animation: cookieIn 0.3s ease; }
 .cookie-banner.hide { opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease; }
