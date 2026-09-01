@@ -229,6 +229,8 @@ a.region:hover { border-color: var(--green-500); color: var(--green-700); backgr
 .landing-body ul { padding-left: 1.2rem; margin: 0 0 1rem; }
 .landing-body ol { padding-left: 1.2rem; margin: 0 0 1rem; }
 .landing-body ul li, .landing-body ol li { margin-bottom: 8px; }
+.landing-body .col-list { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 20px; }
+.landing-body .col-list li { margin-bottom: 4px; }
 #industries .regions { grid-template-columns: repeat(5, 1fr); }
 @media (max-width: 900px) {
   #industries .regions { grid-template-columns: repeat(3, 1fr); }
