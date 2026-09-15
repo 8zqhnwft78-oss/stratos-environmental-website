@@ -1,0 +1,7 @@
+# Netlify configuration for Stratos Environmental (static site + payment function)
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
