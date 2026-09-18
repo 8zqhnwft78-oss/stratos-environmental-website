@@ -65,13 +65,24 @@ var CONFIG = {
     btn.addEventListener("click", function () { goTo(current - 1); });
   });
 
+  function trackQuote(eventName, params) {
+    if (typeof window.gtag !== "function") return;
+    try {
+      window.gtag("event", eventName, params || {});
+    } catch (e) {}
+  }
+
   function goTo(step) {
     if (step < 1) step = 1;
+    var previous = current;
     current = step;
     panels.forEach(function (p) {
       p.classList.toggle("active", Number(p.getAttribute("data-step")) === step);
     });
     updateProgress(step);
+    if (step !== previous && step <= TOTAL) {
+      trackQuote("quote_step", { step: step, previous_step: previous });
+    }
     var wizard = document.querySelector(".wizard");
     if (wizard) wizard.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -178,7 +189,15 @@ var CONFIG = {
     })
       .then(function (r) { return r.json(); })
       .then(function (res) {
-        if (res.success) { showSuccess(); }
+        if (res.success) {
+          trackQuote("quote_submit", {
+            waste: data.waste,
+            frequency: data.frequency,
+            container: data.container,
+            postcode: data.postcode
+          });
+          showSuccess();
+        }
         else { failSubmit(submitBtn, originalText, res.message || "Unknown error"); }
       })
       .catch(function (err) { failSubmit(submitBtn, originalText, err && err.message ? err.message : "Network error"); });
@@ -242,4 +261,5 @@ var CONFIG = {
   function cssEscape(s) { return s.replace(/["\\]/g, "\\$&"); }
 
   updateProgress(1);
+  trackQuote("quote_start", { step: 1 });
 })();
