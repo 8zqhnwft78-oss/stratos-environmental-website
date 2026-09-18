@@ -1,5 +1,5 @@
 // ============================================================================
-// Stratos Environmental — payments page
+// Stratos Environmental Ltd — payments page
 // - Custom-amount / invoice payments go through a Netlify Function that
 //   creates a Stripe Checkout Session (see netlify/functions/create-checkout.js).
 // - Recurring plans and fixed one-offs use Stripe Payment Links (plain <a>).

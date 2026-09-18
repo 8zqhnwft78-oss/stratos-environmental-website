@@ -1,5 +1,5 @@
 // ============================================================================
-// Stratos Environmental — create a Stripe Checkout Session for a custom amount.
+// Stratos Environmental Ltd — create a Stripe Checkout Session for a custom amount.
 //
 // This runs on Netlify Functions (Node 18+, global fetch available). It talks
 // to Stripe's REST API directly, so there are NO npm dependencies and no build
@@ -48,7 +48,7 @@ exports.handler = async function (event) {
   }
 
   const site = (process.env.SITE_URL || originFrom(event) || "https://stratosenvironmental.co.uk").replace(/\/$/, "");
-  const description = invoiceRef ? `Payment — ${invoiceRef}` : "Payment to Stratos Environmental";
+  const description = invoiceRef ? `Payment — ${invoiceRef}` : "Payment to Stratos Environmental Ltd";
 
   // Stripe expects application/x-www-form-urlencoded with bracketed nested keys.
   const form = new URLSearchParams();

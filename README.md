@@ -1,4 +1,4 @@
-# Stratos Environmental — Website
+# Stratos Environmental Ltd — Website
 
 A fast, modern marketing site for **stratosenvironmental.co.uk**, a commercial
 waste collection & recycling business. Built as a lightweight static site

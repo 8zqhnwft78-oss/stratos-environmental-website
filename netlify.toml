@@ -1,4 +1,4 @@
-# Netlify configuration for Stratos Environmental (static site + payment function)
+# Netlify configuration for Stratos Environmental Ltd (static site + payment function)
 [build]
   publish = "."
   functions = "netlify/functions"

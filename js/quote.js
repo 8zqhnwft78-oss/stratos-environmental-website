@@ -1,5 +1,5 @@
 // ============================================================================
-// Stratos Environmental — quote wizard
+// Stratos Environmental Ltd — quote wizard
 // ----------------------------------------------------------------------------
 // To receive quote submissions by email, create a FREE access key at
 // https://web3forms.com (enter the inbox you want leads sent to) and paste it
@@ -8,7 +8,7 @@
 // ============================================================================
 var CONFIG = {
   WEB3FORMS_KEY: "2f639e6f-3aa3-40d2-b691-9660089f3f09",
-  BUSINESS_NAME: "Stratos Environmental",
+  BUSINESS_NAME: "Stratos Environmental Ltd",
 };
 
 (function () {

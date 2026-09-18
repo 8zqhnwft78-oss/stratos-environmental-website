@@ -1,6 +1,6 @@
 var UPLOAD_CONFIG = {
   WEB3FORMS_KEY: "2f639e6f-3aa3-40d2-b691-9660089f3f09",
-  BUSINESS_NAME: "Stratos Environmental",
+  BUSINESS_NAME: "Stratos Environmental Ltd",
 };
 
 (function () {
