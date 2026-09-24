@@ -27,7 +27,7 @@ HEADER = """<!DOCTYPE html>
     <li><a href="{prefix}index.html#coverage">Areas</a></li>
     <li><a href="{prefix}index.html#faq">FAQs</a></li>
     <li><a href="{prefix}about.html">About</a></li>
-    <li><a href="{prefix}portal.html">Portal</a></li>
+    <li><a href="{prefix}portal.html">Order sacks</a></li>
     <li><a href="{prefix}contact.html">Contact</a></li>
   </ul>
   <div class="nav-actions">
@@ -42,7 +42,7 @@ HEADER = """<!DOCTYPE html>
 FOOTER = """
 <footer class="site-footer"><div class="container"><div class="footer-bottom" style="border:none;margin:0;padding:20px 0">
   <span>© <span id="year"></span> Stratos Environmental Ltd · Company No. 17476860 · CBDU661179</span>
-  <span><a href="{prefix}index.html" style="color:#b9d3c2">Home</a> · <a href="{prefix}quote.html" style="color:#b9d3c2">Quote</a> · <a href="{prefix}upload-invoice.html" style="color:#b9d3c2">Upload invoice</a> · <a href="{prefix}portal.html" style="color:#b9d3c2">Portal</a> · <a href="{prefix}about.html" style="color:#b9d3c2">About</a> · <a href="{prefix}compliance.html" style="color:#b9d3c2">Compliance</a> · <a href="{prefix}contact.html" style="color:#b9d3c2">Contact</a> · <a href="/privacy" style="color:#b9d3c2">Privacy</a> · <a href="/cookies" style="color:#b9d3c2">Cookies</a> · <a href="/terms" style="color:#b9d3c2">Terms</a> · <a href="/accessibility" style="color:#b9d3c2">Accessibility</a></span>
+  <span><a href="{prefix}index.html" style="color:#b9d3c2">Home</a> · <a href="{prefix}quote.html" style="color:#b9d3c2">Quote</a> · <a href="{prefix}upload-invoice.html" style="color:#b9d3c2">Upload invoice</a> · <a href="{prefix}portal.html" style="color:#b9d3c2">Order sacks</a> · <a href="{prefix}about.html" style="color:#b9d3c2">About</a> · <a href="{prefix}compliance.html" style="color:#b9d3c2">Compliance</a> · <a href="{prefix}contact.html" style="color:#b9d3c2">Contact</a> · <a href="/privacy" style="color:#b9d3c2">Privacy</a> · <a href="/cookies" style="color:#b9d3c2">Cookies</a> · <a href="/terms" style="color:#b9d3c2">Terms</a> · <a href="/accessibility" style="color:#b9d3c2">Accessibility</a></span>
 </div></div></footer>
 <script src="{prefix}js/main.js?v=""" + V + """"></script>
 </body></html>"""
@@ -69,7 +69,6 @@ def write_page(folder, slug, title, desc, eyebrow, h1, lead, body, quote_param="
   <p class="lead">{lead}</p>
   <div class="hero-cta">
     <a href="{quote_url}" class="btn btn-primary btn-lg">Get a Free Quote</a>
-    <a href="{prefix}upload-invoice.html" class="btn btn-ghost btn-lg">Upload Your Invoice</a>
   </div>
 </div></section>
 <section class="landing-body"><div class="container">{body}{rel_html}</div></section>

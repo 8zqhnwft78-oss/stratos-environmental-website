@@ -24,14 +24,18 @@ var PORTAL_CONFIG = {
   var current = 1;
 
   var ITEMS = [
-    { name: "qty_general", label: "General waste sacks" },
-    { name: "qty_recycling", label: "Recycling sacks" },
-    { name: "qty_food", label: "Food waste sacks / liners" },
-    { name: "qty_extra", label: "Extra collections" },
+    { name: "qty_general", label: "General waste sacks", packSize: 50 },
+    { name: "qty_recycling", label: "Recycling sacks", packSize: 50 },
+    { name: "qty_food", label: "Food waste sacks / liners", packSize: 50 },
+    { name: "qty_extra", label: "Extra collections", packSize: 0 },
   ];
 
-  restoreIdentity();
-  updateProgress(1);
+  var hasSavedIdentity = restoreIdentity();
+  if (hasSavedIdentity) {
+    goTo(2);
+  } else {
+    updateProgress(1);
+  }
 
   form.querySelectorAll(".options").forEach(function (group) {
     group.querySelectorAll('input[type="radio"]').forEach(function (input) {
@@ -174,7 +178,12 @@ var PORTAL_CONFIG = {
     return ITEMS.map(function (item) {
       var el = form.querySelector('[name="' + item.name + '"]');
       var qty = el ? readQty(el) : 0;
-      return qty > 0 ? item.label + ": " + qty : "";
+      if (qty <= 0) return "";
+      if (item.packSize) {
+        var packs = Math.round(qty / item.packSize);
+        return item.label + ": " + qty + " (" + packs + " pack" + (packs === 1 ? "" : "s") + " of " + item.packSize + ")";
+      }
+      return item.label + ": " + qty;
     }).filter(Boolean);
   }
 
@@ -196,12 +205,15 @@ var PORTAL_CONFIG = {
   function restoreIdentity() {
     try {
       var saved = JSON.parse(localStorage.getItem(PORTAL_CONFIG.STORE_KEY) || "null");
-      if (!saved) return;
+      if (!saved || !saved.company || !saved.email) return false;
       ["company", "postcode", "name", "phone", "email", "account"].forEach(function (n) {
         var el = form.querySelector('[name="' + n + '"]');
         if (el && saved[n]) el.value = saved[n];
       });
-    } catch (e) {}
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   function saveIdentity(d) {

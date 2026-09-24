@@ -55,7 +55,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=12" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
 
   <script type="application/ld+json">
   {
@@ -79,7 +79,7 @@
         <ul class="nav-links">
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#how">How it works</a></li>
-          <li><a href="/portal.html">Portal</a></li>
+          <li><a href="/portal.html">Order sacks</a></li>
           <li><a href="contact.html">Contact</a></li>
         
     <li><a href="about.html">About</a></li></ul>
@@ -98,8 +98,8 @@
 
   <main class="container">
     <div class="quote-intro">
-      <h1>Customer portal</h1>
-      <p>Existing customers — order more sacks or extra collections. We'll email the team and arrange it with the supplier.</p>
+      <h1>Order more sacks</h1>
+      <p>Existing customers — top up waste sacks or request extra collections. We'll email the team and arrange it with the supplier.</p>
     </div>
     <div class="quote-layout">
       <div class="wizard">
@@ -154,43 +154,42 @@
 
           <div class="step-panel" data-step="2">
             <div class="portal-welcome" id="portalWelcome" hidden>
-              <p>Ordering for <strong id="welcomeName"></strong></p>
-              <button type="button" class="text-btn" id="notYou">Not you?</button>
+              <p>Ordering for <strong id="welcomeName"></strong> · <button type="button" class="text-btn" id="notYou">Not you?</button></p>
             </div>
             <h2>What do you need?</h2>
-            <p class="step-hint">Enter a quantity for each item. We’ll order it from the supplier and confirm.</p>
+            <p class="step-hint">Sold in packs of 50 — we&rsquo;ll confirm with the supplier. Enter how many sacks you need (buttons jump by 50).</p>
 
             <div class="order-lines">
               <div class="order-line">
                 <div class="order-line-copy">
                   <strong>General waste sacks</strong>
-                  <span>Approved trade sacks for general waste</span>
+                  <span>Packs of 50 · approved trade sacks</span>
                 </div>
                 <div class="qty">
                   <button type="button" data-qty="-" aria-label="Fewer general waste sacks">&minus;</button>
-                  <input name="qty_general" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" />
+                  <input name="qty_general" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" aria-label="General waste sacks (packs of 50)" />
                   <button type="button" data-qty="+" aria-label="More general waste sacks">+</button>
                 </div>
               </div>
               <div class="order-line">
                 <div class="order-line-copy">
                   <strong>Recycling sacks</strong>
-                  <span>Dry mixed recycling / cardboard sacks</span>
+                  <span>Packs of 50 · dry mixed / cardboard</span>
                 </div>
                 <div class="qty">
                   <button type="button" data-qty="-" aria-label="Fewer recycling sacks">&minus;</button>
-                  <input name="qty_recycling" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" />
+                  <input name="qty_recycling" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" aria-label="Recycling sacks (packs of 50)" />
                   <button type="button" data-qty="+" aria-label="More recycling sacks">+</button>
                 </div>
               </div>
               <div class="order-line">
                 <div class="order-line-copy">
                   <strong>Food waste sacks / liners</strong>
-                  <span>Caddy liners or food-waste sacks</span>
+                  <span>Packs of 50 · caddy liners or food sacks</span>
                 </div>
                 <div class="qty">
                   <button type="button" data-qty="-" aria-label="Fewer food waste sacks">&minus;</button>
-                  <input name="qty_food" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" />
+                  <input name="qty_food" type="number" min="0" step="50" data-step="50" value="0" inputmode="numeric" aria-label="Food waste sacks (packs of 50)" />
                   <button type="button" data-qty="+" aria-label="More food waste sacks">+</button>
                 </div>
               </div>
@@ -267,6 +266,6 @@
   </main>
 
   <script src="js/main.js?v=8"></script>
-  <script src="js/portal.js?v=1"></script>
+  <script src="js/portal.js?v=2"></script>
 </body>
 </html>

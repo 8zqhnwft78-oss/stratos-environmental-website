@@ -22,13 +22,23 @@ var CONFIG = {
   var TOTAL = 5; // input steps (6th panel is the success screen)
   var current = 1;
 
-  // ----- Prefill waste type from URL (?waste=...) -----
+  // ----- Prefill from URL (?waste=...&container=Sacks&postcode=...) -----
   var params = new URLSearchParams(window.location.search);
   var presetWaste = params.get("waste");
+  var presetContainer = params.get("container");
   var presetPostcode = params.get("postcode");
   if (presetWaste) {
     var wasteInput = form.querySelector('input[name="waste"][value="' + cssEscape(presetWaste) + '"]');
     if (wasteInput) { wasteInput.checked = true; syncSelected(wasteInput); }
+  }
+  if (presetContainer) {
+    // Accept Sacks, sacks, or a display-style value containing "sack"
+    var containerValue = presetContainer.trim();
+    var containerInput = form.querySelector('input[name="container"][value="' + cssEscape(containerValue) + '"]');
+    if (!containerInput && /sack/i.test(containerValue)) {
+      containerInput = form.querySelector('input[name="container"][value="Sacks"]');
+    }
+    if (containerInput) { containerInput.checked = true; syncSelected(containerInput); }
   }
   if (presetPostcode) {
     var pc = document.getElementById("postcode");
