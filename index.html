@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=13" />
+  <link rel="stylesheet" href="css/styles.css?v=14" />
 
   <!-- Structured data: Local business -->
   <script type="application/ld+json">
@@ -181,11 +181,12 @@
         <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#coverage">Areas</a></li>
-          <li><a href="#faq">FAQs</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="portal.html">Order sacks</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="nav-mobile-only"><a href="#coverage">Areas</a></li>
+          <li class="nav-mobile-only"><a href="#faq">FAQs</a></li>
+          <li class="nav-mobile-only"><a href="portal.html">Order sacks</a></li>
+          <li class="nav-mobile-only"><a href="upload-invoice.html">Upload invoice</a></li>
         </ul>
         <div class="nav-actions">
           <a class="nav-phone hide-tablet" href="tel:+447448730416">
@@ -195,7 +196,6 @@
           <a class="nav-call-icon" href="tel:+447448730416" aria-label="Call Stratos on +44 7448 730416">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </a>
-          <a href="upload-invoice.html" class="btn btn-ghost hide-tablet">Upload Invoice</a>
           <a href="quote.html" class="btn btn-primary">Free Quote</a>
           <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
         </div>
@@ -207,51 +207,15 @@
   <!-- ===== Hero ===== -->
   <!-- TODO(Isaac): replace gradient-only hero with a real photo of bins/collections when available (no stock URL invented). -->
   <section class="hero">
-    <div class="container hero-inner">
+    <div class="container hero-inner hero-inner--solo">
       <div class="hero-copy">
-        <span class="eyebrow">Compare &amp; save on business waste</span>
         <h1>Compare commercial waste collection in <span>London</span></h1>
-        <p class="broker-line">Environment Agency&ndash;registered waste broker &amp; dealer — collections by licensed carrier partners.</p>
-        <p class="hero-sub">Honest comparisons from our licensed partner network — better prices, set up in minutes.</p>
-        <ul class="hero-points">
-          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free comparison — no obligation</li>
-          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Upload your invoice — we&rsquo;ll try to beat your price</li>
-        </ul>
+        <p class="hero-sub">Honest quotes from licensed carrier partners — Environment Agency&ndash;registered broker, free and no obligation.</p>
         <div class="hero-cta">
           <a href="quote.html" class="btn btn-primary btn-lg">Get a Free Quote</a>
-          <a href="upload-invoice.html" class="btn btn-ghost btn-lg">Upload Your Invoice</a>
+          <a href="upload-invoice.html" class="btn btn-text">Upload your invoice</a>
         </div>
-        <p class="fineprint" style="margin-top:12px">Usually same working day — often within minutes. · <a href="/compliance.html">Compliance &amp; credentials</a></p>
-        <div class="hero-trust">
-          <!-- TODO(Isaac): link stars/trust copy to a real Trustpilot or Google Reviews URL when available — do not invent one. -->
-          <span class="stars" role="img" aria-label="Customer feedback from UK businesses">★★★★★</span>
-          <span>Trusted by cafés, coworking spaces and property managers</span>
-        </div>
-      </div>
-
-      <!-- Quick quote start card -->
-      <div class="hero-card">
-        <h3>Start your free quote</h3>
-        <p class="muted">Tell us what you need — it takes under a minute.</p>
-        <form class="mini-form" action="quote.html" method="get">
-          <div class="field">
-            <label for="mini-waste">What type of waste?</label>
-            <select id="mini-waste" name="waste">
-              <option value="General">General waste</option>
-              <option value="General Dry Recycling">Dry mixed recycling</option>
-              <option value="Food Waste">Food waste</option>
-              <option value="Glass">Glass</option>
-              <option value="Clinical">Clinical / healthcare</option>
-              <option value="Other / Unsure">Multiple / unsure</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="mini-postcode">Your postcode</label>
-            <input id="mini-postcode" name="postcode" type="text" placeholder="e.g. SW15 2SW" autocomplete="postal-code" />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block btn-lg">Continue</button>
-          <p class="fineprint">No obligation · Free advice · UK-wide</p>
-        </form>
+        <p class="hero-fine">Usually same working day · <a href="/compliance.html">Compliance &amp; credentials</a> · Existing customers: <a href="portal.html">Order sacks</a></p>
       </div>
     </div>
   </section>
@@ -642,6 +606,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
