@@ -38,9 +38,8 @@
     banner.setAttribute("aria-label", "Cookie consent");
     banner.innerHTML =
       '<div class="cookie-inner">' +
-      '<p class="cookie-text">We use cookies to measure traffic and improve your experience. ' +
-      "You can accept or reject non-essential cookies. See our " +
-      '<a href="/privacy">privacy &amp; cookie policy</a>.</p>' +
+      '<p class="cookie-text">We use cookies to measure traffic. Accept or reject non-essential cookies. ' +
+      '<a href="/privacy">Privacy policy</a>.</p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-ghost cookie-reject">Reject</button>' +
       '<button type="button" class="btn btn-primary cookie-accept">Accept</button>' +
